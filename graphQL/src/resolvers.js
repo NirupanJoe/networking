@@ -15,5 +15,13 @@ export const resolvers = {
     Query: {
         authors: () => data.authors,
         books: () => data.books
+    },
+    Mutation: {
+        addBook: (parent, args) => {
+            const newBook = { ...args, id: data.books.length + 1 };
+            data.books.push(newBook)
+
+            return newBook;
+        }
     }
 }
